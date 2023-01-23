@@ -14,6 +14,8 @@ class List extends Component {
 						name="City"
 						value="Type city here..."
 					/>
+					<button type="">Search</button>
+					<button>Clear</button>
 				</form>
 			</>
 		);
