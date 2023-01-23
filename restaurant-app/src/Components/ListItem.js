@@ -4,7 +4,7 @@ class ListItem extends Component {
 	// state = {}
 
 	render() {
-		return <li>Restaurant X</li>;
+		return <li>{this.props.name}</li>;
 	}
 }
 

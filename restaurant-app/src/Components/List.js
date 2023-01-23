@@ -13,16 +13,16 @@ class List extends Component {
 					<input
 						type="text"
 						name="City"
-						value="Type city here..."
+						placeholder="Type city here..."
 					/>
 					<button type="">Search</button>
 					<button>Clear</button>
 					<ul>
-						<ListItem />
-						<ListItem />
-						<ListItem />
-						<ListItem />
-						<ListItem />
+						<ListItem name="Restaurant 1" />
+						<ListItem name="Restaurant 2" />
+						<ListItem name="Restaurant 3" />
+						<ListItem name="Restaurant 4" />
+						<ListItem name="Restaurant 5" />
 					</ul>
 				</form>
 			</>
