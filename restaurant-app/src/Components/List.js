@@ -2,9 +2,31 @@ import React, { Component } from "react";
 import ListItem from "./ListItem";
 
 class List extends Component {
-	// state = {}
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			city: "",
+			restaurantList: ["one", "two", "three"],
+		};
+	}
+
+	clearList = (e) => {
+		console.log("Clearing List...");
+		this.setState({
+			restaurantList: [],
+		});
+	};
 
 	render() {
+		let restaurants = this.state.restaurantList.map((element, index) => {
+			return (
+				<ListItem
+					restaurant={element}
+					key={index}
+				/>
+			);
+		});
 		return (
 			<>
 				<h1>Weekend Away</h1>
@@ -16,14 +38,8 @@ class List extends Component {
 						placeholder="Type city here..."
 					/>
 					<button type="">Search</button>
-					<button>Clear</button>
-					<ul>
-						<ListItem name="Restaurant 1" />
-						<ListItem name="Restaurant 2" />
-						<ListItem name="Restaurant 3" />
-						<ListItem name="Restaurant 4" />
-						<ListItem name="Restaurant 5" />
-					</ul>
+					<button onClick={(e) => this.clearList(e)}>Clear</button>
+					<ul>{restaurants}</ul>
 				</form>
 			</>
 		);
