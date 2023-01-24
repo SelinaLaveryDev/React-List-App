@@ -10,6 +10,7 @@ class App extends Component {
 		this.state = {
 			searchValue: "",
 			restaurantsToDisplay: this.props.restaurantList,
+			restaurantData: [],
 			// restaurantList: this.props.restaurantList,
 		};
 	}
