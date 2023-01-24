@@ -19,6 +19,11 @@ class List extends Component {
 		});
 	};
 
+	handleSearch = (e) => {
+		e.preventDefault();
+		console.log("handling search...");
+	};
+
 	render() {
 		let restaurants = this.state.restaurantList.map((element, index) => {
 			return (
@@ -38,7 +43,7 @@ class List extends Component {
 						name="City"
 						placeholder="Type city here..."
 					/>
-					<button type="">Search</button>
+					<button onClick={this.handleSearch}>Search</button>
 					<button onClick={this.clearList}>Clear</button>
 					<ul>{restaurants}</ul>
 				</form>
