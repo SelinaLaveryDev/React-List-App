@@ -11,13 +11,13 @@ class List extends Component {
 		};
 	}
 
-	clearList(e) {
+	clearList = (e) => {
 		e.preventDefault();
 		console.log("Clearing List...");
 		this.setState({
 			restaurantList: [],
 		});
-	}
+	};
 
 	render() {
 		let restaurants = this.state.restaurantList.map((element, index) => {
@@ -39,7 +39,7 @@ class List extends Component {
 						placeholder="Type city here..."
 					/>
 					<button type="">Search</button>
-					<button onClick={(e) => this.clearList(e)}>Clear</button>
+					<button onClick={this.clearList}>Clear</button>
 					<ul>{restaurants}</ul>
 				</form>
 			</>
