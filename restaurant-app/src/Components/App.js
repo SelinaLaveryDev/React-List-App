@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import ListItem from "./ListItem";
 import ListContainer from "./ListContainer";
+import Search from "./Search";
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			city: "",
-			restaurantList: this.props.restaurantList,
+			searchValue: "",
+			// restaurantList: this.props.restaurantList,
 		};
 	}
 
@@ -29,28 +30,12 @@ class App extends Component {
 	// };
 
 	render() {
-		// let restaurants = this.state.restaurantList.map((element, index) => {
-		// 	return (
-		// 		<ListItem
-		// 			restaurant={element}
-		// 			key={index}
-		// 		/>
-		// 	);
-		// });
 		return (
 			<>
 				<h1>Weekend Away</h1>
-				<form>
-					<label>Where are you dining out this weekend?</label>
-					<input
-						type="text"
-						// value={this.state.city}
-						placeholder="Type city here..."
-					/>
-					<button onClick={this.handleSearch}>Search</button>
-					<button onClick={this.clearList}>Clear</button>
-					<ListContainer restaurantList={this.props.restaurantList} />
-				</form>
+				<Search value={this.state.searchValue} />
+				<ListContainer restaurantList={this.props.restaurantList} />
+				<button onClick={this.clearList}>Clear</button>
 			</>
 		);
 	}

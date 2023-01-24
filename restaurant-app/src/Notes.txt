@@ -1,10 +1,10 @@
 App Structure:
 
 1. Components
-  - List .js App Container
-      -Search.js (search component)
-      -ListItem.js (container for Items)
-        - Item(s)
+  - App.js Container
+      -Search.js (search component) - use state and onChange
+      -X ListContainer.js (container for Items)
+        -X ListItem(s)
 2. Props
   - Restaurants [Array]
 3. State
@@ -15,20 +15,21 @@ App Structure:
   Family:
 
     Child 1
-    (Rest 1)
+    (ListItem)
 
       x         Parent 1
-                (ListItems Container) - needs data/props to iterate over to generate items/restaurants
+                (ListContainer.js) - needs data/props to iterate over to generate items/restaurants
 
     Child 2
-    (Rest 2)
+    (ListItems)
 
-      x             X                             Grand Parent [Rest Array and search query available at App(List.js) level]
-                                                    From search info, the list.js tells List items to go re-render itself using filter.
+      x             X                             Grand Parent [restaurant Array and search query available at Appjs level]
+                                                    From search info, the App.js tells ListContainer to go re-render itself using filter.
+                                                   App (Container) -> [Fruits Array, Search Value]
 
     Child 3 
     (Input)     Parent 2
-                (Search) - Tells List.js what user is searching for.
+                (Search) - Tells App.js what user is searching for.
 
       x
 
