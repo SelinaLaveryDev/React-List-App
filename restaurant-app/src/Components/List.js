@@ -7,19 +7,19 @@ class List extends Component {
 
 		this.state = {
 			city: "",
-			restaurantList: ["one", "two", "three"],
+			restaurants: this.props.restaurantList,
 		};
 	}
 
 	clearList = (e) => {
 		console.log("Clearing List...");
 		this.setState({
-			restaurantList: [],
+			restaurants: [],
 		});
 	};
 
 	render() {
-		let restaurants = this.state.restaurantList.map((element, index) => {
+		let restaurants = this.props.restaurantList.map((element, index) => {
 			return (
 				<ListItem
 					restaurant={element}
