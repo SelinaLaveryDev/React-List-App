@@ -2,11 +2,12 @@ App Structure:
 
 1. Components
   - App.js Container
-      -Search.js (search component) - use state and onChange
+      -X Search.js (search component) - use state and onChange
       -X ListContainer.js (container for Items)
         -X ListItem(s)
 2. Props
-  - Restaurants [Array]
+  - X Restaurants [Array]
+  - API
 3. State
   - Search Value (Data needs to go from input search box to the list)
   - Filtered list of restaurants
