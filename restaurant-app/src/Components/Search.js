@@ -4,7 +4,7 @@ class Search extends Component {
 	render() {
 		return (
 			<>
-				<form>
+				<form onSubmit={this.handleSubmit}>
 					<label>Where are you dining out this weekend?</label>
 					<input
 						type="text"
@@ -12,6 +12,7 @@ class Search extends Component {
 						value={this.props.value}
 						onChange={this.props.onChange}
 					/>
+					<button type="submit">Search</button>
 				</form>
 			</>
 		);
