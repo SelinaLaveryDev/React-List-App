@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ListItem from "./ListItem";
+import ListContainer from "./ListContainer";
 
-class List extends Component {
+class App extends Component {
 	constructor(props) {
 		super(props);
 
@@ -19,20 +20,23 @@ class List extends Component {
 		});
 	};
 
-	handleSearch = (e) => {
-		e.preventDefault();
-		console.log("handling search...");
-	};
+	// handleSearch = (e) => {
+	// 	e.preventDefault();
+	// 	console.log("handling search...");
+	// 	this.setState({
+	// 		city:
+	// 	})
+	// };
 
 	render() {
-		let restaurants = this.state.restaurantList.map((element, index) => {
-			return (
-				<ListItem
-					restaurant={element}
-					key={index}
-				/>
-			);
-		});
+		// let restaurants = this.state.restaurantList.map((element, index) => {
+		// 	return (
+		// 		<ListItem
+		// 			restaurant={element}
+		// 			key={index}
+		// 		/>
+		// 	);
+		// });
 		return (
 			<>
 				<h1>Weekend Away</h1>
@@ -40,16 +44,16 @@ class List extends Component {
 					<label>Where are you dining out this weekend?</label>
 					<input
 						type="text"
-						name="City"
+						// value={this.state.city}
 						placeholder="Type city here..."
 					/>
 					<button onClick={this.handleSearch}>Search</button>
 					<button onClick={this.clearList}>Clear</button>
-					<ul>{restaurants}</ul>
+					<ListContainer restaurantList={this.props.restaurantList} />
 				</form>
 			</>
 		);
 	}
 }
 
-export default List;
+export default App;

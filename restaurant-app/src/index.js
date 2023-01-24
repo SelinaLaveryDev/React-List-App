@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import List from "./Components/List";
+import App from "./Components/App";
 
-const restaurantList = ["one", "two", "three", "four"];
+const restaurantArray = ["one", "two", "three", "four"];
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<List restaurantList={restaurantList} />
+		<App restaurantList={restaurantArray} />
 	</React.StrictMode>
 );
 
