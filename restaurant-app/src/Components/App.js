@@ -15,31 +15,30 @@ class App extends Component {
 		};
 	}
 
-	componentDidMount() {
-		const apiKey = process.env.REACT_APP_X_RapidAPI_Key;
+	// componentDidMount() {
+	// 	this.apiCall();
+	// }
 
-		const options = {
-			method: "GET",
-			headers: {
-				"X-RapidAPI-Key": process.env.REACT_APP_X_RapidAPI_Key,
-				"X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
-			},
-		};
+	// apiCall() {
+	// 	const apiKey = process.env.REACT_APP_X_RapidAPI_Key;
 
-		fetch(
-			"https://travel-advisor.p.rapidapi.com/restaurants/list?location_id=293919&restaurant_tagcategory=10591&restaurant_tagcategory_standalone=10591&currency=USD&lunit=km&limit=30&open_now=false&lang=en_US",
-			options
-		)
-			.then((response) => response.json())
-			.then((response) => {
-				console.log(response);
-				// this.setState({
-				// 	restaurantData: response.data,
-				// 	restaurantsToDisplay: response.data,
-				// });
-			})
-			.catch((err) => console.error(err));
-	}
+	// 	const options = {
+	// 		method: "GET",
+	// 		headers: {
+	// 			"X-RapidAPI-Key": process.env.REACT_APP_X_RapidAPI_Key,
+	// 			// "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+	// 			"X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
+	// 		},
+	// 	};
+
+	// 	fetch(
+	// 		`https://wyre-data.p.rapidapi.com/restaurants/town/${textValue}`,
+	// 		options
+	// 	)
+	// 		.then((response) => response.json())
+	// 		.then((response) => console.log(response))
+	// 		.catch((err) => console.error(err));
+	// }
 
 	clearList = (e) => {
 		e.preventDefault();
@@ -53,30 +52,50 @@ class App extends Component {
 		e.preventDefault();
 		// console.log(e.target.value);
 		const textValue = e.target.value;
+		const apiKey = process.env.REACT_APP_X_RapidAPI_Key;
 
-		//Take the current value of the text box
-		//Fitler the restaurantList Array into a new array
+		const options = {
+			method: "GET",
+			headers: {
+				"X-RapidAPI-Key": process.env.REACT_APP_X_RapidAPI_Key,
+				// "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+				"X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
+			},
+		};
 
-		const filteredRestaurants = this.props.restaurantList.filter(
-			(restaurant) => {
-				return restaurant.toLowerCase().includes(textValue.toLowerCase());
-			}
-		);
-
-		this.setState({
-			searchValue: textValue,
-			restaurantsToDisplay: filteredRestaurants,
-		});
+		fetch(
+			`https://wyre-data.p.rapidapi.com/restaurants/town/${textValue}`,
+			options
+		)
+			.then((response) => response.json())
+			.then((response) => {
+				const filteredRestaurants = response.filter((restaurant) => {
+					return restaurant.location.city
+						.toLowerCase()
+						.includes(textValue.toLowerCase());
+				});
+				this.setState({
+					searchValue: textValue,
+					restaurantsToDisplay: filteredRestaurants,
+					restaurantData: filteredRestaurants,
+				});
+			})
+			.catch((err) => console.error(err));
 	};
 
 	render() {
 		return (
 			<>
-				<h1>Weekend Away</h1>
+				<div className="header">
+					<h1>Weekend Away</h1>
+					<h3>Search for UK Restaurants </h3>
+				</div>
+
 				<Search
 					value={this.state.searchValue}
 					onChange={this.handleSearch}
 				/>
+
 				<ListContainer restaurantList={this.state.restaurantsToDisplay} />
 				<button onClick={this.clearList}>Clear</button>
 			</>
