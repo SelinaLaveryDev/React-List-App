@@ -31,10 +31,23 @@ class Search extends Component {
 			.then((response) => {
 				console.log("the response is....", response);
 
-				// const filteredRestaurants = response.filter((restaurant) => {
-				// 	return restaurant.location.city
-				// 		.toLowerCase()
-				// 		.includes(textValue.toLowerCase());
+				// filter down the data
+				const filteredData = response.map((restaurant) => {
+					return {
+						name: restaurant.BusinessName,
+						address:
+							restaurant.AddressLine2 +
+							" " +
+							restaurant.AddressLine3 +
+							" " +
+							restaurant.PostCode,
+					};
+				});
+
+				// set the filtered data as the value of the restaurantData state
+				this.setState({
+					restaurantData: filteredData,
+				});
 			})
 			.catch((err) => console.error(err));
 	};

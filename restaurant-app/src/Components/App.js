@@ -106,7 +106,7 @@ class App extends Component {
 					onClick={this.clearList}
 				/>
 
-				<ListContainer restaurantList={this.props.restaurantList} />
+				<ListContainer restaurantList={this.state.restaurantList} />
 			</>
 		);
 	}
