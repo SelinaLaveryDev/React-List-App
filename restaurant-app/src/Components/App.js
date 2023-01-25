@@ -9,14 +9,43 @@ class App extends Component {
 
 		this.state = {
 			searchValue: "",
-			restaurantsToDisplay: this.props.restaurantList,
+			city: "",
+			// restaurantsToDisplay: this.props.restaurantList,
 			restaurantData: [],
-			// restaurantList: this.props.restaurantList,
+			restaurantList: [],
 		};
 	}
 
+	handleCityChange = (city) => {
+		this.setState({ city });
+	};
+
 	// componentDidMount() {
-	// 	this.apiCall();
+	// const apiKey = process.env.REACT_APP_X_RapidAPI_Key;
+	// const city = this.state.searchValue;
+	// console.log("the city is....", city);
+
+	// const options = {
+	// 	method: "GET",
+	// 	headers: {
+	// 		"X-RapidAPI-Key": process.env.REACT_APP_X_RapidAPI_Key,
+	// 		// "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+	// 		"X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
+	// 	},
+	// };
+
+	// fetch(
+	// 	`https://wyre-data.p.rapidapi.com/restaurants/town/hambleton`,
+	// 	options
+	// )
+	// 	.then((response) => response.json())
+	// 	.then((response) => {
+	// 		console.log("the response is....", response);
+	// 		// const filteredRestaurants = response.filter((restaurant) => {
+	// 		// 	return restaurant.location.city
+	// 		// 		.toLowerCase()
+	// 		// 		.includes(textValue.toLowerCase());
+	// 	});
 	// }
 
 	// apiCall() {
@@ -49,38 +78,17 @@ class App extends Component {
 	};
 
 	handleSearch = (e) => {
-		e.preventDefault();
-		// console.log(e.target.value);
-		const textValue = e.target.value;
-		const apiKey = process.env.REACT_APP_X_RapidAPI_Key;
+		// e.preventDefault();
+		console.log("search value...", e.target.value);
+		// const textValue = e.target.value;
 
-		const options = {
-			method: "GET",
-			headers: {
-				"X-RapidAPI-Key": process.env.REACT_APP_X_RapidAPI_Key,
-				// "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
-				"X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
-			},
-		};
-
-		fetch(
-			`https://wyre-data.p.rapidapi.com/restaurants/town/${textValue}`,
-			options
-		)
-			.then((response) => response.json())
-			.then((response) => {
-				const filteredRestaurants = response.filter((restaurant) => {
-					return restaurant.location.city
-						.toLowerCase()
-						.includes(textValue.toLowerCase());
-				});
-				this.setState({
-					searchValue: textValue,
-					restaurantsToDisplay: filteredRestaurants,
-					restaurantData: filteredRestaurants,
-				});
-			})
-			.catch((err) => console.error(err));
+		this.setState({
+			searchValue: e.target.value,
+			// restaurantsToDisplay: filteredRestaurants,
+			// restaurantData: filteredRestaurants,
+		});
+		// 	})
+		// 	.catch((err) => console.error(err));
 	};
 
 	render() {
@@ -94,10 +102,11 @@ class App extends Component {
 				<Search
 					value={this.state.searchValue}
 					onChange={this.handleSearch}
+					handleCityChange={this.handleCityChange}
+					onClick={this.clearList}
 				/>
 
-				<ListContainer restaurantList={this.state.restaurantsToDisplay} />
-				<button onClick={this.clearList}>Clear</button>
+				<ListContainer restaurantList={this.props.restaurantList} />
 			</>
 		);
 	}
