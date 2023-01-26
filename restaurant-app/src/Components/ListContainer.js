@@ -9,8 +9,8 @@ class ListContainer extends Component {
 					<div>Loading...</div>
 				) : (
 					<ul>
-						{this.props.restaurants.map((restaurant) => (
-							<li key={restaurant.id}>
+						{this.props.restaurants.map((restaurant, index) => (
+							<li key={index}>
 								Name: {restaurant.BusinessName} | Address:{" "}
 								{restaurant.AddressLine2} {restaurant.AddressLine3}{" "}
 								{restaurant.PostCode}

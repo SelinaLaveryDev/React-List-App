@@ -33,7 +33,7 @@ class App extends Component {
 		e.preventDefault();
 		console.log("Clearing List...");
 		this.setState({
-			restaurantList: [],
+			restaurantData: [],
 		});
 	};
 
