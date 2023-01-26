@@ -21,10 +21,19 @@ class App extends Component {
 
 	addNewRestaurant = () => {
 		const input = prompt("Enter a new restaurant name");
-		console.log(input);
+
+		this.setState({
+			newRestaurant: input,
+		});
+
 		const addingNewRestaurant = {
-			name: input,
+			BusinessName: input,
+			AddressLine2: "",
+			AddressLine3: "",
+			PostCode: "",
+			isFavourited: false,
 		};
+
 		this.setState(
 			{
 				restaurantData: [addingNewRestaurant].concat(this.state.restaurantData),
@@ -32,31 +41,6 @@ class App extends Component {
 			() => {}
 		);
 	};
-
-	// handleInputChange = (event) => {
-	// 	const { name, value } = event.target;
-	// 	this.setState({
-	// 		newRestaurant: {
-	// 			...this.state.newRestaurant,
-	// 			name: value,
-	// 		},
-	// 	});
-	// };
-
-	// handleSubmit = (event) => {
-	// 	event.preventDefault();
-	// 	const newRestaurant = { ...this.state.newRestaurant };
-	// 	newRestaurant.isFavourited = false;
-	// 	this.setState((prevState) => ({
-	// 		newRestaurant: [
-	// 			...prevState.newRestaurant,
-	// 			{ ...prevState.newRestaurant, id: Date.now(), isFavourited: false },
-	// 		],
-	// 		newRestaurant: {
-	// 			name: "",
-	// 		},
-	// 	}));
-	// };
 
 	handleCityChange = (city) => {
 		this.setState({ city });
@@ -79,17 +63,10 @@ class App extends Component {
 	};
 
 	handleSearch = (e) => {
-		// e.preventDefault();
 		console.log("search value...", e.target.value);
-		// const textValue = e.target.value;
-
 		this.setState({
 			searchValue: e.target.value,
-			// restaurantsToDisplay: filteredRestaurants,
-			// restaurantData: filteredRestaurants,
 		});
-		// 	})
-		// 	.catch((err) => console.error(err));
 	};
 
 	handleFavourite = (id) => {
@@ -125,18 +102,11 @@ class App extends Component {
 				/>
 				<button onClick={this.addNewRestaurant}>Add Restaurant</button>
 
-				{/* <AddRestaurantForm
-					newRestaurant={this.state.newRestaurant}
-					handleInputChange={this.handleInputChange}
-					handleSubmit={this.handleSubmit}
-				/> */}
-
-				{/* <NewRestaurantList newRestaurant={this.state.newRestaurant} /> */}
-
 				<ListContainer
 					restaurants={this.state.restaurantData}
 					isLoaded={this.state.isLoaded}
 					handleFavourite={this.handleFavourite}
+					newRestaurant={this.state.newRestaurant}
 				/>
 			</>
 		);

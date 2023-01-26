@@ -3,16 +3,19 @@ import FavouriteButton from "./FavouriteButton";
 
 class ListItem extends Component {
 	render() {
-		const { restaurant, handleFavourite } = this.props;
+		const { restaurant, handleFavourite, newRestaurant } = this.props;
 		return (
-			<li>
-				Name: {restaurant.BusinessName} | Address: {restaurant.AddressLine2}{" "}
-				{restaurant.AddressLine3} {restaurant.PostCode}{" "}
-				<FavouriteButton
-					restaurant={restaurant}
-					handleFavourite={handleFavourite}
-				/>
-			</li>
+			<ul>
+				{newRestaurant && <li>{newRestaurant}</li>}
+				<li>
+					Name: {restaurant.BusinessName} | Address: {restaurant.AddressLine2}{" "}
+					{restaurant.AddressLine3} {restaurant.PostCode}{" "}
+					<FavouriteButton
+						restaurant={restaurant}
+						handleFavourite={handleFavourite}
+					/>
+				</li>
+			</ul>
 		);
 	}
 }
