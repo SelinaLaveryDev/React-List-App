@@ -14,6 +14,9 @@ class ListItem extends Component {
 						restaurant={restaurant}
 						handleFavourite={handleFavourite}
 					/>
+					<button onClick={() => this.props.deleteRestaurant(restaurant.id)}>
+						Remove
+					</button>
 				</li>
 			</ul>
 		);

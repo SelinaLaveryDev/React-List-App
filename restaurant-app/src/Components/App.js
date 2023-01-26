@@ -43,6 +43,14 @@ class App extends Component {
 		);
 	};
 
+	deleteRestaurant = (id) => {
+		this.setState({
+			restaurantData: this.state.restaurantData.filter(
+				(restaurant) => restaurant.id !== id
+			),
+		});
+	};
+
 	handleCityChange = (city) => {
 		this.setState({ city });
 	};
@@ -108,6 +116,7 @@ class App extends Component {
 					isLoaded={this.state.isLoaded}
 					handleFavourite={this.handleFavourite}
 					newRestaurant={this.state.newRestaurant}
+					deleteRestaurant={this.deleteRestaurant}
 				/>
 			</>
 		);
