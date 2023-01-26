@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ListItem from "./ListItem";
+import ListContainer from "./ListContainer";
+import FavouriteButton from "./FavouriteButton";
 
 class Search extends Component {
 	handleClick = (e) => {

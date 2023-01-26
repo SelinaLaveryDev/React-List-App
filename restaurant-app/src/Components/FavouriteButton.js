@@ -1,26 +1,32 @@
 import React, { Component } from "react";
 
-class FavoriteButton extends Component {
+class FavouriteButton extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
-			isFavorited: false,
+			isFavourited: this.props.restaurant.isFavourited || false,
 		};
 	}
 
-	toggleFavorite = () => {
-		this.setState({
-			isFavorited: !this.state.isFavorited,
+	handleClick = () => {
+		this.setState((prevState) => {
+			return {
+				isFavourited: !prevState.isFavourited,
+			};
 		});
+		this.props.handleFavourite(this.props.restaurant.id);
 	};
 
 	render() {
 		return (
-			<button onClick={this.toggleFavorite}>
-				{this.state.isFavorited ? "Unfavorite" : "Favorite"}
+			<button onClick={this.handleClick}>
+				{this.state.isFavourited
+					? "Remove from Favourites"
+					: "Add to Favourites"}
 			</button>
 		);
 	}
 }
 
-export default FavoriteButton;
+export default FavouriteButton;

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ListItem from "./ListItem";
 import ListContainer from "./ListContainer";
 import Search from "./Search";
+import FavouriteButton from "./FavouriteButton";
 
 class App extends Component {
 	constructor(props) {
@@ -51,6 +52,21 @@ class App extends Component {
 		// 	.catch((err) => console.error(err));
 	};
 
+	handleFavourite = (id) => {
+		const updatedRestaurantData = this.state.restaurantData.map(
+			(restaurant) => {
+				if (restaurant.id === id) {
+					return {
+						...restaurant,
+						isFavourited: !restaurant.isFavourited,
+					};
+				}
+				return restaurant;
+			}
+		);
+		this.setState({ restaurantData: updatedRestaurantData });
+	};
+
 	render() {
 		return (
 			<>
@@ -71,6 +87,7 @@ class App extends Component {
 				<ListContainer
 					restaurants={this.state.restaurantData}
 					isLoaded={this.state.isLoaded}
+					handleFavourite={this.handleFavourite}
 				/>
 			</>
 		);

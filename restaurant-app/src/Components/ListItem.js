@@ -1,10 +1,20 @@
 import React, { Component } from "react";
+import FavouriteButton from "./FavouriteButton";
 
 class ListItem extends Component {
-	// state = {}
-
 	render() {
-		return <>{/* <li>{this.props.restaurant}</li>; */}</>;
+		const { restaurant, handleFavourite } = this.props;
+		return (
+			<li>
+				Name: {restaurant.BusinessName} | Address: {restaurant.AddressLine2}{" "}
+				{restaurant.AddressLine3} {restaurant.PostCode}{" "}
+				<FavouriteButton
+					restaurant={restaurant}
+					handleFavourite={handleFavourite}
+				/>
+			</li>
+		);
 	}
 }
+
 export default ListItem;
