@@ -21,7 +21,7 @@ class App extends Component {
 
 	addNewRestaurant = () => {
 		const input = prompt("Enter a new restaurant name");
-
+		const id = input + Date.now();
 		this.setState({
 			newRestaurant: input,
 		});
@@ -32,6 +32,7 @@ class App extends Component {
 			AddressLine3: "",
 			PostCode: "",
 			isFavourited: false,
+			id: id,
 		};
 
 		this.setState(
