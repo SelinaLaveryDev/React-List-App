@@ -25,6 +25,16 @@ class App extends Component {
 		};
 	}
 
+	handleChange = (event) => {
+		const { name, value } = event.target;
+		this.setState({
+			newRestaurant: {
+				...this.state.newRestaurant,
+				[name]: value,
+			},
+		});
+	};
+
 	handleCityChange = (city) => {
 		this.setState({ city });
 	};
