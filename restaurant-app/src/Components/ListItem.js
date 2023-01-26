@@ -4,8 +4,11 @@ class ListItem extends Component {
 	// state = {}
 
 	render() {
-		return <li>{this.props.restaurant}</li>;
+		return (
+			<>
+				<li>{this.props.restaurant}</li>;
+			</>
+		);
 	}
 }
-
 export default ListItem;

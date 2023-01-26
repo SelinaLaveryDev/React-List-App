@@ -1,11 +1,7 @@
 import React, { Component } from "react";
+import ListItem from "./ListItem";
 
 class Search extends Component {
-	// handleSubmit = (e) => {
-	// 	e.preventDefault();
-	// 	this.props.onSubmit();
-	// };
-
 	handleClick = (e) => {
 		e.preventDefault();
 		console.log("Handling search click...");
@@ -29,27 +25,14 @@ class Search extends Component {
 		fetch(`https://wyre-data.p.rapidapi.com/restaurants/town/${city}`, options)
 			.then((response) => response.json())
 			.then((response) => {
-				console.log("the response is....", response);
-
-				// filter down the data
-				const filteredData = response.map((restaurant) => {
-					return {
-						name: restaurant.BusinessName,
-						address:
-							restaurant.AddressLine2 +
-							" " +
-							restaurant.AddressLine3 +
-							" " +
-							restaurant.PostCode,
-					};
-				});
-
-				// set the filtered data as the value of the restaurantData state
 				this.setState({
-					restaurantData: filteredData,
+					isLoaded: true,
+					restaurantData: response,
 				});
-			})
-			.catch((err) => console.error(err));
+				this.props.updateRestaurantData(response);
+				console.log("the response is....", response);
+			});
+		this.props.updateIsLoaded(true);
 	};
 
 	render() {

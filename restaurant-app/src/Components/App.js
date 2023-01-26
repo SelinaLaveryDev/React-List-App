@@ -12,6 +12,7 @@ class App extends Component {
 			city: "",
 			// restaurantsToDisplay: this.props.restaurantList,
 			restaurantData: [],
+			isLoaded: false,
 			restaurantList: [],
 		};
 	}
@@ -20,54 +21,13 @@ class App extends Component {
 		this.setState({ city });
 	};
 
-	// componentDidMount() {
-	// const apiKey = process.env.REACT_APP_X_RapidAPI_Key;
-	// const city = this.state.searchValue;
-	// console.log("the city is....", city);
+	updateRestaurantData = (response) => {
+		this.setState({ restaurantData: response });
+	};
 
-	// const options = {
-	// 	method: "GET",
-	// 	headers: {
-	// 		"X-RapidAPI-Key": process.env.REACT_APP_X_RapidAPI_Key,
-	// 		// "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
-	// 		"X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
-	// 	},
-	// };
-
-	// fetch(
-	// 	`https://wyre-data.p.rapidapi.com/restaurants/town/hambleton`,
-	// 	options
-	// )
-	// 	.then((response) => response.json())
-	// 	.then((response) => {
-	// 		console.log("the response is....", response);
-	// 		// const filteredRestaurants = response.filter((restaurant) => {
-	// 		// 	return restaurant.location.city
-	// 		// 		.toLowerCase()
-	// 		// 		.includes(textValue.toLowerCase());
-	// 	});
-	// }
-
-	// apiCall() {
-	// 	const apiKey = process.env.REACT_APP_X_RapidAPI_Key;
-
-	// 	const options = {
-	// 		method: "GET",
-	// 		headers: {
-	// 			"X-RapidAPI-Key": process.env.REACT_APP_X_RapidAPI_Key,
-	// 			// "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
-	// 			"X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
-	// 		},
-	// 	};
-
-	// 	fetch(
-	// 		`https://wyre-data.p.rapidapi.com/restaurants/town/${textValue}`,
-	// 		options
-	// 	)
-	// 		.then((response) => response.json())
-	// 		.then((response) => console.log(response))
-	// 		.catch((err) => console.error(err));
-	// }
+	updateIsLoaded = (stat) => {
+		this.setState({ isLoaded: stat });
+	};
 
 	clearList = (e) => {
 		e.preventDefault();
@@ -103,13 +63,67 @@ class App extends Component {
 					value={this.state.searchValue}
 					onChange={this.handleSearch}
 					handleCityChange={this.handleCityChange}
+					updateRestaurantData={this.updateRestaurantData}
+					updateIsLoaded={this.updateIsLoaded}
 					onClick={this.clearList}
 				/>
 
-				<ListContainer restaurantList={this.state.restaurantList} />
+				<ListContainer
+					restaurants={this.state.restaurantData}
+					isLoaded={this.state.isLoaded}
+				/>
 			</>
 		);
 	}
 }
 
 export default App;
+
+// componentDidMount() {
+// const apiKey = process.env.REACT_APP_X_RapidAPI_Key;
+// const city = this.state.searchValue;
+// console.log("the city is....", city);
+
+// const options = {
+// 	method: "GET",
+// 	headers: {
+// 		"X-RapidAPI-Key": process.env.REACT_APP_X_RapidAPI_Key,
+// 		// "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+// 		"X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
+// 	},
+// };
+
+// fetch(
+// 	`https://wyre-data.p.rapidapi.com/restaurants/town/hambleton`,
+// 	options
+// )
+// 	.then((response) => response.json())
+// 	.then((response) => {
+// 		console.log("the response is....", response);
+// 		// const filteredRestaurants = response.filter((restaurant) => {
+// 		// 	return restaurant.location.city
+// 		// 		.toLowerCase()
+// 		// 		.includes(textValue.toLowerCase());
+// 	});
+// }
+
+// apiCall() {
+// 	const apiKey = process.env.REACT_APP_X_RapidAPI_Key;
+
+// 	const options = {
+// 		method: "GET",
+// 		headers: {
+// 			"X-RapidAPI-Key": process.env.REACT_APP_X_RapidAPI_Key,
+// 			// "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+// 			"X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
+// 		},
+// 	};
+
+// 	fetch(
+// 		`https://wyre-data.p.rapidapi.com/restaurants/town/${textValue}`,
+// 		options
+// 	)
+// 		.then((response) => response.json())
+// 		.then((response) => console.log(response))
+// 		.catch((err) => console.error(err));
+// }

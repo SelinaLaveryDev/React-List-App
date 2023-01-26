@@ -4,10 +4,25 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./Components/App";
 
+const restaurantArray = ["one", "two", "three", "four"];
+
+{
+	/* const filteredData = response.map((restaurant) => {
+					return (
+						<ListItem
+							name={restaurant.BusinessName}
+							address={restaurant.AddressLine2}
+							addressLine2={restaurant.AddressLine3}
+							address3={restaurant.PostCode}
+						/>
+					);
+				}); */
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<App />
+		<App restaurantList={restaurantArray} />
 	</React.StrictMode>
 );
 
