@@ -12,7 +12,7 @@ class ListContainer extends Component {
 					<ul>
 						{this.props.restaurants.map((restaurant, index) => (
 							<ListItem
-								key={restaurant.id + index}
+								key={index}
 								restaurant={restaurant}
 								handleFavourite={this.props.handleFavourite}
 							/>

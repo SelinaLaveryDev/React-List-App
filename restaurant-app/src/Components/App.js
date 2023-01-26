@@ -4,6 +4,7 @@ import ListContainer from "./ListContainer";
 import Search from "./Search";
 import FavouriteButton from "./FavouriteButton";
 import AddRestaurantForm from "./AddRestaurantForm";
+import NewRestaurantList from "./NewRestaurantList";
 
 class App extends Component {
 	constructor(props) {
@@ -12,28 +13,50 @@ class App extends Component {
 		this.state = {
 			searchValue: "",
 			city: "",
-			// restaurantsToDisplay: this.props.restaurantList,
 			restaurantData: [],
 			isLoaded: false,
-			newRestaurant: {
-				name: "",
-				location: "",
-				description: "",
-				image: "",
-			},
-			// restaurantList: [],
+			newRestaurant: "",
 		};
 	}
 
-	handleChange = (event) => {
-		const { name, value } = event.target;
-		this.setState({
-			newRestaurant: {
-				...this.state.newRestaurant,
-				[name]: value,
+	addNewRestaurant = () => {
+		const input = prompt("Enter a new restaurant name");
+		console.log(input);
+		const addingNewRestaurant = {
+			name: input,
+		};
+		this.setState(
+			{
+				restaurantData: [addingNewRestaurant].concat(this.state.restaurantData),
 			},
-		});
+			() => {}
+		);
 	};
+
+	// handleInputChange = (event) => {
+	// 	const { name, value } = event.target;
+	// 	this.setState({
+	// 		newRestaurant: {
+	// 			...this.state.newRestaurant,
+	// 			name: value,
+	// 		},
+	// 	});
+	// };
+
+	// handleSubmit = (event) => {
+	// 	event.preventDefault();
+	// 	const newRestaurant = { ...this.state.newRestaurant };
+	// 	newRestaurant.isFavourited = false;
+	// 	this.setState((prevState) => ({
+	// 		newRestaurant: [
+	// 			...prevState.newRestaurant,
+	// 			{ ...prevState.newRestaurant, id: Date.now(), isFavourited: false },
+	// 		],
+	// 		newRestaurant: {
+	// 			name: "",
+	// 		},
+	// 	}));
+	// };
 
 	handleCityChange = (city) => {
 		this.setState({ city });
@@ -100,6 +123,15 @@ class App extends Component {
 					updateIsLoaded={this.updateIsLoaded}
 					onClick={this.clearList}
 				/>
+				<button onClick={this.addNewRestaurant}>Add Restaurant</button>
+
+				{/* <AddRestaurantForm
+					newRestaurant={this.state.newRestaurant}
+					handleInputChange={this.handleInputChange}
+					handleSubmit={this.handleSubmit}
+				/> */}
+
+				{/* <NewRestaurantList newRestaurant={this.state.newRestaurant} /> */}
 
 				<ListContainer
 					restaurants={this.state.restaurantData}
