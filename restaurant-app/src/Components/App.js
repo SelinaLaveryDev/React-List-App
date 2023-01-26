@@ -3,6 +3,7 @@ import ListItem from "./ListItem";
 import ListContainer from "./ListContainer";
 import Search from "./Search";
 import FavouriteButton from "./FavouriteButton";
+import AddRestaurantForm from "./AddRestaurantForm";
 
 class App extends Component {
 	constructor(props) {
@@ -14,7 +15,13 @@ class App extends Component {
 			// restaurantsToDisplay: this.props.restaurantList,
 			restaurantData: [],
 			isLoaded: false,
-			restaurantList: [],
+			newRestaurant: {
+				name: "",
+				location: "",
+				description: "",
+				image: "",
+			},
+			// restaurantList: [],
 		};
 	}
 
