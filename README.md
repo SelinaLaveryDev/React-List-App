@@ -9,7 +9,7 @@ Weekend Away is a website that allows the user to browse a list of UK restaurant
 
 # Demo
 
-The site was deployed using Netlify and is available [here]
+ - The site was deployed using GitHub Pages and is available [here](https://sml-40.github.io/React-List-App/)
 
 
 # Brief
@@ -83,7 +83,52 @@ Select a Project Idea of your own. But the user must be able to:
 
 ![Weekend Away Wireframe](https://user-images.githubusercontent.com/114579141/215038089-61ad81ea-1d07-4243-8186-41dc985cc73c.png)
 
+The search form styled with React Bootstrap, indicated the user to enter the city they are looking to search
 
+<img width="602" alt="User Search Form" src="https://user-images.githubusercontent.com/114579141/215085945-4158bc16-91c2-4cef-80cf-78901fd44d5c.png">
+
+Using the city that the user has typed in, the fetch process is then run to get the data from the API
+
+<img width="614" alt="API call" src="https://user-images.githubusercontent.com/114579141/215084766-fd5ea7c7-22ce-4d0e-a738-193c6b015642.png">
+
+Again, using React Bootstrap, I then created a table for the mapped data output
+
+<img width="632" alt="React Bootstrap Table" src="https://user-images.githubusercontent.com/114579141/215084476-668654d5-8e84-4823-bf0a-fb49c2fcefba.png">
+
+I then created some functionality to allow the user to add a restaurant to the list
+
+<img width="638" alt="Add New Restaurant" src="https://user-images.githubusercontent.com/114579141/215080710-b18563f2-af1d-48fe-8d53-c67da0956062.png">
+
+
+## Styling
+
+ - A combination of Bootstrap and CSS.
+
+
+## Challenges
+
+I could not fix the remove button for the restaurants returned from the API. Each restaurant has an ID, and I included the id in the functionality, I was unable to determine why the id was not matching up with the restaurant
+
+<img width="482" alt="Restaurant Id" src="https://user-images.githubusercontent.com/114579141/215088586-51bd23f5-d7b5-4c63-b1df-6eb9c523f708.png">
+
+
+## Key Learnings
+ - I would like to practice with other API's, particularly ones that return more information to work with
+ - Working with props and state
+ - Using Bootstrap for the first time
+
+## Bugs
+
+ - The Loading message only appears at the start, should also appear while we wait for search results
+ - I would like to add functionality to deactivate the 'Add Restaurant' button until after the user has completed their search
+ - User input should clear after they have pressed search
+ - Unable to remove individual restaurants from the API search, when pressed it removes them all because of the restaurant.id issue
+
+
+## Future Features
+- Favourite toggle and counter
+- Create a favourite list
+- Styling using image carousel
 
 
 
