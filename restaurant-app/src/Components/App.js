@@ -1,12 +1,7 @@
 import React, { Component } from "react";
-import ListItem from "./ListItem";
 import ListContainer from "./ListContainer";
 import Search from "./Search";
-import FavouriteButton from "./FavouriteButton";
-import AddRestaurantForm from "./AddRestaurantForm";
-import NewRestaurantList from "./NewRestaurantList";
 import FaveCounter from "./FaveCounter";
-import FaveList from "./faveList";
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
@@ -24,13 +19,6 @@ class App extends Component {
 			faveCounter: 0,
 		};
 	}
-
-	addFavouriteToList = (restaurant) => {
-		this.setState((prevState) => ({
-			faveList: [...prevState.faveList, restaurant],
-			faveCounter: prevState.faveCounter + 1,
-		}));
-	};
 
 	addNewRestaurant = () => {
 		const input = prompt("Enter a new restaurant name");
@@ -85,7 +73,6 @@ class App extends Component {
 	};
 
 	handleSearch = (e) => {
-		console.log("search value...", e.target.value);
 		this.setState({
 			searchValue: e.target.value,
 		});
@@ -104,6 +91,13 @@ class App extends Component {
 			}
 		);
 		this.setState({ restaurantData: updatedRestaurantData });
+	};
+
+	addFavouriteToList = (restaurant) => {
+		this.setState((prevState) => ({
+			faveList: [...prevState.faveList, restaurant],
+			faveCounter: prevState.faveCounter + 1,
+		}));
 	};
 
 	render() {

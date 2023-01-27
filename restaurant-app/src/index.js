@@ -7,21 +7,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Components/css/custom.css";
 
-// const restaurantArray = ["one", "two", "three", "four"];
-
-{
-	/* const filteredData = response.map((restaurant) => {
-					return (
-						<ListItem
-							name={restaurant.BusinessName}
-							address={restaurant.AddressLine2}
-							addressLine2={restaurant.AddressLine3}
-							address3={restaurant.PostCode}
-						/>
-					);
-				}); */
-}
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
