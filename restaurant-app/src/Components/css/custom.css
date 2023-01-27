@@ -1,4 +1,46 @@
 body {
-  background-color: lightslategray;
+  background-color: #D7DFF3;
   color: black;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.header {
+  
+  align-items: center;
+  justify-content: space-between;
+  background-color: #A2BCF0;
+  border: 3px solid #1C097A;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 20px;
+
+}
+
+.header h1 {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  color: #1C097A;
+}
+
+.header h3 {
+  font-size: 24px;
+  font-weight: lighter;
+  margin: 0;
+  text-align: center;
+  color: #1C097A;
+}
+
+.header a {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  margin-right: 20px;
+  align-self: flex-start;
+}
+
+.header a:hover {
+  color: #0077c9;
 }

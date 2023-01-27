@@ -3,6 +3,7 @@ import ListItem from "./ListItem";
 import ListContainer from "./ListContainer";
 import FavouriteButton from "./FavouriteButton";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 class Search extends Component {
 	handleClick = (e) => {
@@ -53,23 +54,21 @@ class Search extends Component {
 							onChange={this.props.handleCityChange}
 						/>
 
-						<button
+						<Button
+							variant="primary"
+							size="sm"
 							onClick={(e) => this.handleClick(e)}
 							type="submit">
 							Search
-						</button>
-						<button onClick={this.clearList}>Clear</button>
+						</Button>
+						<Button
+							variant="secondary"
+							size="sm"
+							onClick={this.props.clearList}>
+							Clear
+						</Button>
 					</Form.Group>
 				</Form>
-
-				{/* <form onSubmit={this.handleSubmit}>
-					<label>Where are you dining out this weekend?</label>
-					<input
-						type="text"
-						placeholder="Enter city here..."
-						value={this.props.city}
-						onChange={this.props.handleCityChange}
-					/> */}
 			</>
 		);
 	}

@@ -8,6 +8,7 @@ import NewRestaurantList from "./NewRestaurantList";
 import FaveCounter from "./FaveCounter";
 import FaveList from "./faveList";
 import { Container } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 class App extends Component {
 	constructor(props) {
@@ -123,9 +124,15 @@ class App extends Component {
 						handleCityChange={this.handleCityChange}
 						updateRestaurantData={this.updateRestaurantData}
 						updateIsLoaded={this.updateIsLoaded}
-						onClick={this.clearList}
+						clearList={this.clearList}
 					/>
-					<button onClick={this.addNewRestaurant}>Add Restaurant</button>
+
+					<Button
+						variant="warning"
+						size="sm"
+						onClick={this.addNewRestaurant}>
+						Add Restaurant
+					</Button>
 
 					<ListContainer
 						restaurants={this.state.restaurantData}

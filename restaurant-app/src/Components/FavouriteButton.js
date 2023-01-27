@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Button from "react-bootstrap/Button";
 
 class FavouriteButton extends Component {
 	constructor(props) {
@@ -20,11 +21,14 @@ class FavouriteButton extends Component {
 
 	render() {
 		return (
-			<button onClick={this.handleClick}>
+			<Button
+				variant="success"
+				size="sm"
+				onClick={this.handleClick}>
 				{this.state.isFavourited
 					? "Remove from Favourites"
 					: "Add to Favourites"}
-			</button>
+			</Button>
 		);
 	}
 }

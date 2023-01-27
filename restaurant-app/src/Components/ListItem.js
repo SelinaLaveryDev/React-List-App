@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import FavouriteButton from "./FavouriteButton";
 import Table from "react-bootstrap/Table";
 import { Container } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 class ListItem extends Component {
 	render() {
@@ -34,10 +35,12 @@ class ListItem extends Component {
 										restaurant={restaurant}
 										handleFavourite={handleFavourite}
 									/>
-									<button
+									<Button
+										variant="secondary"
+										size="sm"
 										onClick={() => this.props.deleteRestaurant(restaurant.id)}>
 										Remove
-									</button>
+									</Button>
 								</td>
 							</tr>
 						</tbody>
