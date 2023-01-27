@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ListItem from "./ListItem";
 import ListContainer from "./ListContainer";
 import FavouriteButton from "./FavouriteButton";
+import Form from "react-bootstrap/Form";
 
 class Search extends Component {
 	handleClick = (e) => {
@@ -40,6 +41,27 @@ class Search extends Component {
 	render() {
 		return (
 			<>
+				<Form>
+					<Form.Group
+						className="mb-4"
+						controlId="exampleForm.ControlInput1">
+						<Form.Label>Where are you dining out this weekend?</Form.Label>
+						<Form.Control
+							type="email"
+							placeholder="Enter city here..."
+						/>
+					</Form.Group>
+					<Form.Group
+						className="mb-3"
+						controlId="exampleForm.ControlTextarea1">
+						<Form.Label>Example textarea</Form.Label>
+						<Form.Control
+							as="textarea"
+							rows={3}
+						/>
+					</Form.Group>
+				</Form>
+
 				<form onSubmit={this.handleSubmit}>
 					<label>Where are you dining out this weekend?</label>
 					<input

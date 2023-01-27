@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ListItem from "./ListItem";
 import FavouriteButton from "./FavouriteButton";
+import { Container } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 
 class ListContainer extends Component {
 	render() {
@@ -12,10 +14,12 @@ class ListContainer extends Component {
 					<ul>
 						{this.props.restaurants.map((restaurant, index) => (
 							<ListItem
-								key={restaurant.id ? restaurant.id : index}
+								key={index}
+								id={restaurant._id}
 								restaurant={restaurant}
 								handleFavourite={this.props.handleFavourite}
 								deleteRestaurant={this.props.deleteRestaurant}
+								addFavouriteToList={this.props.addFavouriteToList}
 							/>
 						))}
 					</ul>

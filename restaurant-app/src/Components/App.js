@@ -5,7 +5,9 @@ import Search from "./Search";
 import FavouriteButton from "./FavouriteButton";
 import AddRestaurantForm from "./AddRestaurantForm";
 import NewRestaurantList from "./NewRestaurantList";
-
+import FaveCounter from "./FaveCounter";
+import FaveList from "./faveList";
+import { Container } from "react-bootstrap";
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -16,8 +18,17 @@ class App extends Component {
 			restaurantData: [],
 			isLoaded: false,
 			newRestaurant: "",
+			faveList: [],
+			faveCounter: 0,
 		};
 	}
+
+	addFavouriteToList = (restaurant) => {
+		this.setState((prevState) => ({
+			faveList: [...prevState.faveList, restaurant],
+			faveCounter: prevState.faveCounter + 1,
+		}));
+	};
 
 	addNewRestaurant = () => {
 		const input = prompt("Enter a new restaurant name");
@@ -28,9 +39,9 @@ class App extends Component {
 
 		const addingNewRestaurant = {
 			BusinessName: input,
-			AddressLine2: "",
-			AddressLine3: "",
-			PostCode: "",
+			AddressLine2: "The Best Place Ever,",
+			AddressLine3: "Awesome Lane",
+			PostCode: "FAB ULS",
 			isFavourited: false,
 			id: id,
 		};
@@ -96,28 +107,34 @@ class App extends Component {
 	render() {
 		return (
 			<>
-				<div className="header">
-					<h1>Weekend Away</h1>
-					<h3>Search for UK Restaurants </h3>
-				</div>
+				<Container>
+					<div className="flex flex-col items-center">
+						<a href="#favourites">Favourite List ({this.state.faveCounter})</a>
+						<FaveCounter />
 
-				<Search
-					value={this.state.searchValue}
-					onChange={this.handleSearch}
-					handleCityChange={this.handleCityChange}
-					updateRestaurantData={this.updateRestaurantData}
-					updateIsLoaded={this.updateIsLoaded}
-					onClick={this.clearList}
-				/>
-				<button onClick={this.addNewRestaurant}>Add Restaurant</button>
+						<h1>Weekend Away</h1>
+						<h3>Search for UK Restaurants </h3>
+					</div>
 
-				<ListContainer
-					restaurants={this.state.restaurantData}
-					isLoaded={this.state.isLoaded}
-					handleFavourite={this.handleFavourite}
-					newRestaurant={this.state.newRestaurant}
-					deleteRestaurant={this.deleteRestaurant}
-				/>
+					<Search
+						value={this.state.searchValue}
+						onChange={this.handleSearch}
+						handleCityChange={this.handleCityChange}
+						updateRestaurantData={this.updateRestaurantData}
+						updateIsLoaded={this.updateIsLoaded}
+						onClick={this.clearList}
+					/>
+					<button onClick={this.addNewRestaurant}>Add Restaurant</button>
+
+					<ListContainer
+						restaurants={this.state.restaurantData}
+						isLoaded={this.state.isLoaded}
+						handleFavourite={this.handleFavourite}
+						newRestaurant={this.state.newRestaurant}
+						deleteRestaurant={this.deleteRestaurant}
+						addFavouriteToList={this.addFavouriteToList}
+					/>
+				</Container>
 			</>
 		);
 	}

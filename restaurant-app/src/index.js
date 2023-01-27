@@ -3,6 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./Components/App";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "react-bootstrap/Navbar";
+import "./Components/css/custom.css";
 
 // const restaurantArray = ["one", "two", "three", "four"];
 
