@@ -8,6 +8,7 @@ import NewRestaurantList from "./NewRestaurantList";
 import FaveCounter from "./FaveCounter";
 import FaveList from "./faveList";
 import { Container } from "react-bootstrap";
+
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -108,7 +109,7 @@ class App extends Component {
 		return (
 			<>
 				<Container>
-					<div className="flex flex-col items-center">
+					<div className="header">
 						<a href="#favourites">Favourite List ({this.state.faveCounter})</a>
 						<FaveCounter />
 

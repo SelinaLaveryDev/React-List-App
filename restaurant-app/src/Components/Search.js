@@ -41,42 +41,35 @@ class Search extends Component {
 	render() {
 		return (
 			<>
-				<Form>
+				<Form onSubmit={this.handleSubmit}>
 					<Form.Group
 						className="mb-4"
 						controlId="exampleForm.ControlInput1">
 						<Form.Label>Where are you dining out this weekend?</Form.Label>
 						<Form.Control
-							type="email"
+							type="text"
 							placeholder="Enter city here..."
+							value={this.props.city}
+							onChange={this.props.handleCityChange}
 						/>
-					</Form.Group>
-					<Form.Group
-						className="mb-3"
-						controlId="exampleForm.ControlTextarea1">
-						<Form.Label>Example textarea</Form.Label>
-						<Form.Control
-							as="textarea"
-							rows={3}
-						/>
+
+						<button
+							onClick={(e) => this.handleClick(e)}
+							type="submit">
+							Search
+						</button>
+						<button onClick={this.clearList}>Clear</button>
 					</Form.Group>
 				</Form>
 
-				<form onSubmit={this.handleSubmit}>
+				{/* <form onSubmit={this.handleSubmit}>
 					<label>Where are you dining out this weekend?</label>
 					<input
 						type="text"
 						placeholder="Enter city here..."
 						value={this.props.city}
 						onChange={this.props.handleCityChange}
-					/>
-					<button
-						onClick={(e) => this.handleClick(e)}
-						type="submit">
-						Search
-					</button>
-					<button onClick={this.clearList}>Clear</button>
-				</form>
+					/> */}
 			</>
 		);
 	}
