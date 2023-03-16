@@ -1,6 +1,6 @@
-# SEI Portfolio 2 - React-List-App
+# SEI Project 2 - Weekend Away
 
-For this project, I built a web application using ReactJS and an API of my choice. 
+For my second project with General Assembly, I built a web application using ReactJS and a third party public API of my choice. 
 
 ![React-Restaurant-App](https://user-images.githubusercontent.com/114579141/215033817-d04d38b2-3e39-4c78-9e2b-dda2b010a9e6.png)
 
@@ -16,7 +16,7 @@ Weekend Away is a website that allows the user to browse a list of UK restaurant
 
 ## General
 
- - Build a web application from scratch, without a starter codebase. Must be your own work.
+ - Build a web application from scratch, without a starter codebase.
  - Use React with create-react-app to build your application.
  - Plan your application using wireframes and user stories.
  - Craft a README.md file that explains your app to the world.
@@ -34,54 +34,26 @@ Select a Project Idea of your own. But the user must be able to:
  - Clear/delete only marked items
  - Fetch data from at least one 3rd party API using Axios or fetch.
  - Make frequent Git commits with descriptive messages, explaining your commit.
-
-
-## Deployment
-
- - Your React app must be deployed to GitHub Pages, Surge, or any hosting service. Applications that are not deployed will be considered incomplete.
-
-
-### Bonus Requirements
-
- - You should only attempt these bonuses if and only if you've satisfied the base technical requirements for this project.
  
-
-### React Router
-
- - Use React Router to handle multiple views.
-
-
-### React Hooks
-
- - Refactor your React app using hooks
-
-
-### Another 3rd Party API
-
- - Incorporate another API in your application
-
-
-### Stretch Goals
-
- - Make the app Responsive
- - Save the data to localStorage or an API
- - Use 1 or more 3rd party API's with fetch or Axios.
- - Use 1 or more 3rd party libraries
- - Use a React component library like Ant Design, Bootstrap React, or Material UI
- - Use a CSS library like Bootstrap (tutorial)
- - Add User Sign Up, Sign In, and Sign Out with Firebase and React Authentication (tutorial), alternative tutorial here (can be very challenging).
-
-
-## Process
-
- - I searched the web looking for a clean easy to use api, one that would be rich with data and reliable. Wyre Data API fit the bill, with hundreds of UK      restaurants listed.
-
-
+## Technologies
+ - React
+ - Fetch
+ - Bootstrap
+ - CSS
+ - Wyre Data API
+ 
 ## Wireframe
 
  - I used Balsamiq to design roughly what I wanted for my main page layout.
 
 ![Weekend Away Wireframe](https://user-images.githubusercontent.com/114579141/215038089-61ad81ea-1d07-4243-8186-41dc985cc73c.png)
+
+
+## Process
+
+ - I searched the web looking for a clean, easy-to-use api, one that would be rich with data and reliable. Wyre Data API fit the bill, with hundreds of UK      restaurants listed.
+ 
+## Features
 
 The search form styled with React Bootstrap, indicated the user to enter the city they are looking to search
 
@@ -95,25 +67,20 @@ Again, using React Bootstrap, I then created a table for the mapped data output
 
 <img width="632" alt="React Bootstrap Table" src="https://user-images.githubusercontent.com/114579141/215084476-668654d5-8e84-4823-bf0a-fb49c2fcefba.png">
 
-I then created some functionality to allow the user to add a restaurant to the list
+I also created functionality to allow the user to add a restaurant to the list
 
 <img width="638" alt="Add New Restaurant" src="https://user-images.githubusercontent.com/114579141/215080710-b18563f2-af1d-48fe-8d53-c67da0956062.png">
 
 
-## Styling
-
- - A combination of Bootstrap and CSS.
-
-
 ## Challenges
 
-I could not fix the remove button for the restaurants returned from the API. Each restaurant has an ID, and I included the id in the functionality, I was unable to determine why the id was not matching up with the restaurant
+Within the timeframe, I could not fix the remove button for the restaurants returned from the API. Each restaurant has an ID, and I included the id in the functionality, I was unable to determine why the id was not matching up with the restaurant
 
 <img width="482" alt="Restaurant Id" src="https://user-images.githubusercontent.com/114579141/215088586-51bd23f5-d7b5-4c63-b1df-6eb9c523f708.png">
 
 
 ## Key Learnings
- - I would like to practice with other API's, particularly ones that return more information to work with
+ - I would like to practice with other API's, particularly ones that return more information to work with, for example, images
  - Working with props and state
  - Using Bootstrap for the first time
 
