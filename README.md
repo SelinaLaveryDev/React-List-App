@@ -6,10 +6,6 @@ For my second project with General Assembly, I built a web application using Rea
 
 Weekend Away is a website that allows the user to browse a list of UK restaurants by city. Providing details of the restaurant, including name and address. A user can also add restaurants to the list.
 
-# Demo
-
- - The site was deployed using GitHub Pages and is available [here](https://sml-40.github.io/React-List-App/)
- 
 ## Getting Started/Code Installation
 
 To access and run the code for this project, follow these steps:
